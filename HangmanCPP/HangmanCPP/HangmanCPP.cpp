@@ -6,7 +6,7 @@ using namespace std;
 string words[6] = { "pig", "cat", "dog", "fish", "horse", "parrot"};
 
 string GenerateWord();
-vector<char> SeperateWord(char*);
+vector<char> SeperateWord(string);
 
 
 int main()
@@ -22,8 +22,10 @@ string GenerateWord() {
     vector<string> wordList(words, words + sizeof(words) / sizeof(string));
  
     int randomWordIndex = rand() % (int)(wordList.size());
-    
-    cout << "Generated word : " + wordList[randomWordIndex];
+        
+    generatedWord = wordList[randomWordIndex];
+
+    cout << "Generated word : " + generatedWord << endl;
 
 
     return generatedWord;
@@ -31,12 +33,11 @@ string GenerateWord() {
 
 vector<char> SeperateWord(string generatedWord) {
     vector<char> seperatedWord;
-    for (int i = 0; i < generatedWord.length(); i++) {
-        seperatedWord.push_back(generatedWord[i]);
-        cout << generatedWord[i];
-    }
-
     
-
+    for (char c : generatedWord) {
+        seperatedWord.push_back(c);
+        cout << c << endl;
+    }
+    
     return seperatedWord;
 }
